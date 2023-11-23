@@ -4,9 +4,7 @@ import { Pokemon } from "../domain/pokemon";
 import { PokemonRepository } from "../data/repository/pokemon-repository/pokemon.repository";
 import { Observable } from "rxjs";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class GetPokeDetail implements UseCase<string, Pokemon>{
     constructor(private pokemonRepository: PokemonRepository){}
     execute(name: string): Observable<Pokemon> {

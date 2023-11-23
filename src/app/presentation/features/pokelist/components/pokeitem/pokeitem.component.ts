@@ -27,7 +27,6 @@ export class PokeitemComponent {
   getPokemonDetail(){
     this.api.getPokemonDetail(this.pokemon.name).subscribe((res: any) => {
       this.pokemonDetail = res;
-      console.log("POKEMON DETAIL: ", this.pokemonDetail);
       this.cdRef.detectChanges();
     })
   }

@@ -3,6 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: 'pokelist',
-        loadComponent: () => import('./pages/pokelist/pokelist.component').then( m => m.PokelistComponent)
+        loadComponent: () => import('./presentation/features/pokelist/pokelist.component').then( m => m.PokelistComponent)
+    },
+    {
+        path: '',
+        redirectTo: 'pokelist',
+        pathMatch: 'full'
     }
 ];

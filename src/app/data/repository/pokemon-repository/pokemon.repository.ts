@@ -1,12 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Pokemon, PokemonListItem } from "../../../domain/pokemon";
+import { Pokemon, PokemonList } from "../../../domain/pokemon";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 
 export abstract class PokemonRepository {
-    abstract getPokemonList(limit: number): Observable<PokemonListItem[]>;
+    abstract getPokemonList(limit: number): Observable<PokemonList>;
     abstract getPokemonDetail(name: string): Observable<Pokemon>;
 }

@@ -13,6 +13,13 @@ export interface PokemonListItem {
     url: string;
 }
 
+export interface PokemonList {
+    count: number,
+    next: string,
+    previous: string,
+    results: PokemonListItem[]
+}
+
 export interface Ability{
     ability: {
         name: string;
