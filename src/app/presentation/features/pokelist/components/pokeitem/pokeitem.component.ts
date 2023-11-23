@@ -1,31 +1,31 @@
 import { ChangeDetectorRef, Component, Input, afterNextRender } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ApiService } from '../../../../../services/api.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { GetPokeDetail } from '../../../../../usecases/get-pokedetail';
+import { Pokemon, PokemonDetail, PokemonListItem } from '../../../../../domain/pokemon';
 
 @Component({
   selector: 'pokeitem',
   standalone: true,
   imports: [CommonModule, HttpClientModule, NgOptimizedImage],
-  providers: [ApiService],
+  providers: [GetPokeDetail],
   templateUrl: './pokeitem.component.html',
   styleUrl: './pokeitem.component.scss'
 })
 export class PokeitemComponent {
 
-  pokemonDetail: any;
-  @Input('pokemon') pokemon!: any;
+  pokemonDetail!: PokemonDetail;
+  @Input('pokemon') pokemon!: PokemonListItem;
 
-  constructor(private api: ApiService, private cdRef: ChangeDetectorRef){
+  constructor(private cdRef: ChangeDetectorRef, private getPokemonDetailUseCase: GetPokeDetail){
 
     afterNextRender(() => {
-      // Safe to check `scrollHeight` because this will only run in the browser, not the server.
       this.getPokemonDetail(); 
     });  
   }
 
   getPokemonDetail(){
-    this.api.getPokemonDetail(this.pokemon.name).subscribe((res: any) => {
+    this.getPokemonDetailUseCase.execute(this.pokemon.name).subscribe((res: PokemonDetail) => {
       this.pokemonDetail = res;
       this.cdRef.detectChanges();
     })

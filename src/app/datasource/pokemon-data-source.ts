@@ -1,7 +1,7 @@
 import { Injectable, Injector } from "@angular/core";
 import { PokemonRemoteDataSource } from "../data/source/pokemon-remote-data-source";
 import { Observable } from "rxjs";
-import { Pokemon, PokemonList } from "../domain/pokemon";
+import { PokemonDetail, PokemonList } from "../domain/pokemon";
 
 @Injectable()
 export class PokemonDataSource extends PokemonRemoteDataSource{
@@ -11,8 +11,8 @@ export class PokemonDataSource extends PokemonRemoteDataSource{
     constructor(injector: Injector){
         super(injector);
     }
-    override getPokemonDetail(name: string): Observable<Pokemon> {
-        return this.doRequest<Pokemon>('get', `${this.path}pokemon/${name}`);
+    override getPokemonDetail(name: string): Observable<PokemonDetail> {
+        return this.doRequest<PokemonDetail>('get', `${this.path}pokemon/${name}`);
     }
     override getPokemonList(limit: number): Observable<PokemonList> {
         return this.doRequest<PokemonList>('get', `${this.path}pokemon/?offset=${limit * 20}&limit=20`);
