@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { UseCase } from "../base/use-case";
-import { PokemonDetail } from "../domain/pokemon";
-import { PokemonRepository } from "../data/repository/pokemon-repository/pokemon.repository";
+import { PokemonDetail } from "../models/pokemon";
+import { PokemonRepository } from "../repository/pokemon.repository";
 import { Observable } from "rxjs";
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Injectable, Injector } from "@angular/core";
 import { PokemonRemoteDataSource } from "../data/source/pokemon-remote-data-source";
 import { Observable } from "rxjs";
-import { PokemonDetail, PokemonList } from "../domain/pokemon";
+import { PokemonDetail, PokemonList } from "../domain/models/pokemon";
 
 @Injectable()
 export class PokemonDataSource extends PokemonRemoteDataSource{

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { PokemonRepository } from "./pokemon.repository";
+import { PokemonRepository } from "../../../domain/repository/pokemon.repository";
 import { Observable } from "rxjs";
-import { PokemonDetail, PokemonList } from "../../../domain/pokemon";
+import { PokemonDetail, PokemonList } from "../../../domain/models/pokemon";
 import { PokemonRemoteDataSource } from "../../source/pokemon-remote-data-source";
 
 @Injectable()

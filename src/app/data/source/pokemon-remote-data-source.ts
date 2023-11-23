@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { PokemonDetail, PokemonList } from "../../domain/pokemon";
-import { Request } from "../../base/request";
+import { PokemonDetail, PokemonList } from "../../domain/models/pokemon";
+import { Request } from "../../domain/base/request";
 
 export abstract class PokemonRemoteDataSource extends Request{
     abstract getPokemonList(limit: number): Observable<PokemonList>;

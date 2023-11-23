@@ -1,17 +1,14 @@
-import { Component, ElementRef, afterNextRender } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ApiService } from '../../../services/api.service';
+import { Component, ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { PokeitemComponent } from './components/pokeitem/pokeitem.component';
-import { PokemonList, PokemonListItem } from '../../../domain/pokemon';
-import { GetPokeList } from '../../../usecases/get-pokelist';
+import { PokemonList, PokemonListItem } from '../../../domain/models/pokemon';
+import { GetPokeList } from '../../../domain/usecases/get-pokelist';
+import { PresentationModule } from '../../presentation.module';
 
 @Component({
   selector: 'app-pokelist',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, PokeitemComponent],
-  providers: [ApiService, HttpClient, GetPokeList],
+  imports: [ PresentationModule, PokeitemComponent],
   
   templateUrl: './pokelist.component.html',
   styleUrl: './pokelist.component.scss'

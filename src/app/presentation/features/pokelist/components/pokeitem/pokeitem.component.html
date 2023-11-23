@@ -1,4 +1,4 @@
-<div>
+<div [routerLink]="['/detail', pokemon.name]" [state]="{ detailData: pokemonDetail }">
     <!-- <img src="{{pokemonDetail.sprites.front_default}}" alt="Front pokemon"> -->
     @defer(when pokemonDetail; prefetch on idle){
         <img ngSrc="{{pokemonDetail.sprites.front_default}}" preconnect width="70" height="70" priority alt="Front pokemon" onerror="this.src = '../../../../../assets/ditto.png'">

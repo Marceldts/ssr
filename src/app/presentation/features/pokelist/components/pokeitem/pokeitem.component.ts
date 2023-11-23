@@ -1,13 +1,13 @@
 import { ChangeDetectorRef, Component, Input, afterNextRender } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { GetPokeDetail } from '../../../../../usecases/get-pokedetail';
-import { Pokemon, PokemonDetail, PokemonListItem } from '../../../../../domain/pokemon';
+import { NgOptimizedImage } from '@angular/common';
+import { GetPokeDetail } from '../../../../../domain/usecases/get-pokedetail';
+import { PokemonDetail, PokemonListItem } from '../../../../../domain/models/pokemon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'pokeitem',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, NgOptimizedImage],
+  imports: [ NgOptimizedImage, RouterModule],
   providers: [GetPokeDetail],
   templateUrl: './pokeitem.component.html',
   styleUrl: './pokeitem.component.scss'
